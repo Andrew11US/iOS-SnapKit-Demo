@@ -7,14 +7,26 @@
 //
 
 import UIKit
+import SnapKit
 
 class ViewController: UIViewController {
 
+    let box = UIView()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
+        makeConstraints(box)
     }
-
+    
+    func makeConstraints(_ box: UIView) {
+        self.view.addSubview(box)
+        box.backgroundColor = .magenta
+        box.snp.makeConstraints { (make) in
+            make.leading.top.equalTo(50)
+            make.trailing.bottom.equalTo(-50)
+        }
+    }
 
 }
 
